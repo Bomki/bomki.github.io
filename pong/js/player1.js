@@ -1,0 +1,1 @@
+var player1 = new Moveable("blabla");
