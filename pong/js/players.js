@@ -1,32 +1,39 @@
 function Player (game, spriteName, spriteLocation, x, y, keyUp, keyDown, speed){
     
-    this.sprite = null;
+    this.sprite = Phaser.Sprite;
+    this.x = x;
+    this.y = y;
+    this.spriteName = spriteName;
+    this.spriteLocation = spriteLocation;
+    this.keyUp = keyUp;
+    this.keyDown = keyDown;
+    this.speed = speed;
     
     this.preload = function () {
-        game.load.image(spriteName, spriteLocation);
+        game.load.image(this.spriteName, this.spriteLocation);
     };
     
     this.create = function () {
-        this.sprite = game.add.sprite(x,y,spriteName);
-        this.sprite.body.collideWorldBounds = true;
+        this.sprite = players.create(this.x, this.y, this.spriteName);
         this.sprite.body.bounce.x = 1;
         this.sprite.body.bounce.y = 1;
         this.sprite.body.immovable = true;
         this.sprite.anchor.setTo(0.5, 0.5);
-        this.keyUp = game.input.keyboard.addKey(keyUp);
-        this.keyDown = game.input.keyboard.addKey(keyDown);
-        this.speed = speed;
+        this.keyUp = game.input.keyboard.addKey(this.keyUp);
+        this.keyDown = game.input.keyboard.addKey(this.keyDown);
+
+        
     };
     
     this.update = function () {
+        game.physics.collide(players, balls);
         this.sprite.body.velocity.y = 0;
-        if(this.keyUp.isDown){
+        if(this.keyUp.isDown && this.sprite.body.y > 16){
             this.sprite.body.velocity.y = -this.speed;
         }
-        if(this.keyDown.isDown){
+        if(this.keyDown.isDown && this.sprite.body.y < 560){
             this.sprite.body.velocity.y = this.speed;
         }
-        game.physics.collide(this.sprite, ball1.sprite);
     };
 }
 
