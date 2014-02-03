@@ -13,6 +13,7 @@ function preload(){
     ball1.preload();
     wall1.preload();
     wall2.preload();
+    hitSound.preload();
 }
 
 function create(){
@@ -21,6 +22,7 @@ function create(){
     ball1.create();
     wall1.create();
     wall2.create();
+    hitSound.create();
 }
 
 function update(){
