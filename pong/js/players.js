@@ -26,7 +26,10 @@ function Player (game, spriteName, spriteLocation, x, y, keyUp, keyDown, speed){
     };
     
     this.update = function () {
-        game.physics.collide(players, balls);
+        console.log(hitSound);
+        if(game.physics.collide(players,balls)){
+            hitSound.sound.play();
+        }
         this.sprite.body.velocity.y = 0;
         if(this.keyUp.isDown && this.sprite.body.y > 16){
             this.sprite.body.velocity.y = -this.speed;
@@ -37,5 +40,5 @@ function Player (game, spriteName, spriteLocation, x, y, keyUp, keyDown, speed){
     };
 }
 
-var player1 = new Player(game,"player1", "assets/player1.png", 80, 384, Phaser.Keyboard.W, Phaser.Keyboard.S, 200);
-var player2 = new Player(game,"player2", "assets/player2.png", 1280, 384, Phaser.Keyboard.I, Phaser.Keyboard.K, 200);
+var player1 = new Player(game,"player1", "assets/player1.png", 80, 384, Phaser.Keyboard.W, Phaser.Keyboard.S, 600);
+var player2 = new Player(game,"player2", "assets/player2.png", 1280, 384, Phaser.Keyboard.I, Phaser.Keyboard.K, 600);
