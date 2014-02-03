@@ -26,7 +26,6 @@ function Player (game, spriteName, spriteLocation, x, y, keyUp, keyDown, speed){
     };
     
     this.update = function () {
-        console.log(hitSound);
         if(game.physics.collide(players,balls)){
             hitSound.sound.play();
         }

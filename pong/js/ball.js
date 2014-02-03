@@ -31,10 +31,10 @@ function Ball (game, spriteName, spriteLocation, x, y, startSpeedX, startSpeedY,
         game.physics.collide(balls, walls);
         game.physics.collide(balls, players);
         if(this.sprite.body.x >= 1344){
-            console.log("Player 1 scored!");
+            
         }
         if(this.sprite.body.x <= 0){
-            console.log("Player 2 scored!");
+            
         }
         
         if(this.sprite.body.velocity.x > 0){
