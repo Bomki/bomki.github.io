@@ -28,22 +28,24 @@ function Score(game, x1, y1, x2, y2, p1Text, p2Text, p1Score, p2Score, ball1){
     
     this.update = function(){
         
-        if(this.ball1.sprite.body.x > 0 && this.ball1.sprite.alive === false){
-            console.log("player1 scored!");
+        if(this.ball1.sprite.body.x > 1360 && this.ball1.sprite.alive === false){
+            
             this.p1Score++;
             this.ball1.resetBall();
+            this.createText1.content = this.p1Text + this.p1Score;
         }
         
         
         if(this.ball1.sprite.body.x < 0 && this.ball1.sprite.alive === false){
-            console.log("player2 scored!");
+            
             this.p2Score++;
             this.ball1.resetBall();
+            this.createText2.content = this.p2Text + this.p2Score;
         }
         
-        this.createText1.content = this.p1Text + this.p1Score;
         
-        this.createText2.content = this.p2Text + this.p2Score;
+        
+        
         
     };
     

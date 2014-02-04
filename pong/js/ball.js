@@ -27,15 +27,13 @@ function Ball (game, spriteName, spriteLocation, x, y, startSpeedX, startSpeedY,
         this.sprite.body.velocity.x = this.randomMoveX * this.startSpeedX;
         this.sprite.body.velocity.y = this.randomMoveY * this.startSpeedY;
         this.sprite.outOfBoundsKill = true;
-        
+        game.physics.collide(balls, walls);
+        game.physics.collide(balls, players);
 
     };
     
     this.update = function () {
-        game.physics.collide(balls, walls);
-        
-        game.physics.collide(balls, players);
-        
+
         
 
         
