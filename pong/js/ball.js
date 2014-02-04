@@ -58,4 +58,4 @@ function Ball (game, spriteName, spriteLocation, x, y, startSpeedX, startSpeedY,
     };
 }
 
-var ball1 = new Ball(game, "ball1", "assets/ball.png", 680, 384, 700, 300, 1, 1);
+var ball1 = new Ball(game, "ball1", "assets/ball.png", 680, 384, 400, 400, 1, 1);
