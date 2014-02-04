@@ -7,6 +7,9 @@ function Ball (game, spriteName, spriteLocation, x, y, startSpeedX, startSpeedY,
     this.accY = accY;
     this.spriteName = spriteName;
     this.spriteLocation = spriteLocation;
+    this.resetBall = function(){
+        this.create();
+    };
     
     this.preload = function () {
         game.load.image(this.spriteName, this.spriteLocation);
@@ -23,19 +26,18 @@ function Ball (game, spriteName, spriteLocation, x, y, startSpeedX, startSpeedY,
         this.randomMoveY = Math.random() < 0.5 ? -1 : 1;
         this.sprite.body.velocity.x = this.randomMoveX * this.startSpeedX;
         this.sprite.body.velocity.y = this.randomMoveY * this.startSpeedY;
+        this.sprite.outOfBoundsKill = true;
         
 
     };
     
     this.update = function () {
         game.physics.collide(balls, walls);
+        
         game.physics.collide(balls, players);
-        if(this.sprite.body.x >= 1344){
-            
-        }
-        if(this.sprite.body.x <= 0){
-            
-        }
+        
+        
+
         
         if(this.sprite.body.velocity.x > 0){
             this.sprite.body.velocity.x += this.accX;
@@ -56,4 +58,4 @@ function Ball (game, spriteName, spriteLocation, x, y, startSpeedX, startSpeedY,
     };
 }
 
-var ball1 = new Ball(game, "ball1", "assets/ball.png", 680, 384, 700, 300, 1, 0.5);
+var ball1 = new Ball(game, "ball1", "assets/ball.png", 680, 384, 700, 300, 1, 1);

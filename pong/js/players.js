@@ -29,6 +29,10 @@ function Player (game, spriteName, spriteLocation, x, y, keyUp, keyDown, speed){
         if(game.physics.collide(players,balls)){
             hitSound.sound.play();
         }
+        
+        if(game.physics.collide(walls,balls)){
+            wallHitSound.sound.play();
+        }
         this.sprite.body.velocity.y = 0;
         if(this.keyUp.isDown && this.sprite.body.y > 16){
             this.sprite.body.velocity.y = -this.speed;

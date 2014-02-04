@@ -17,11 +17,6 @@ function Wall(game, spriteName, spriteLocation, x, y){
         this.sprite.body.bounce.y = 1;
         this.sprite.body.immovable = true;
     };
-    
-    this.update = function(){
-        
-    };
-    
 }
 
 var wall1 = new Wall(game, "wall1", "assets/wall.png", 680, 768);

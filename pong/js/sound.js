@@ -20,3 +20,4 @@ function Sound(game, name, location ){
 }
 
 var hitSound = new Sound(game, "hitSound", "assets/hit.mp3");
+var wallHitSound = new Sound(game, "wallHitSound", "assets/wallHit.mp3");
