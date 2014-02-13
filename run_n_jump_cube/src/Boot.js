@@ -32,11 +32,11 @@ BasicGame.Boot.prototype = {
             //  Same goes for mobile settings.
             //  In this case we're saying "scale the game, no lower than 480x260 and no higher than 1024x768"
             this.game.stage.scaleMode = Phaser.StageScaleMode.SHOW_ALL;
-            this.game.stage.scale.minWidth = 480;
-            this.game.stage.scale.minHeight = 260;
-            this.game.stage.scale.maxWidth = 1024;
-            this.game.stage.scale.maxHeight = 768;
-            this.game.stage.scale.forceLandscape = true;
+            this.game.stage.scale.minWidth = 384;
+            this.game.stage.scale.minHeight = 216;
+            this.game.stage.scale.maxWidth = 1280;
+            this.game.stage.scale.maxHeight = 720;
+            this.game.stage.scale.forcePortrait = true;
             this.game.stage.scale.pageAlignHorizontally = true;
             this.game.stage.scale.setScreenSize(true);
         }
